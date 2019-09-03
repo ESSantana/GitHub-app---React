@@ -22,18 +22,21 @@
     font-size: 30px;
     padding: 10px;
     width: 100%;
+    border-radius: 5px;
   }
   
   .user-info img {
     float: left;
-    margin: 0 20px 20px 0;
+    /* margin: 0 20px 20px 0; */
     max-height: 200px;
+    border-radius: 50%;
+    margin: 0 5% 5% 5%;
   }
   
   .repos-info li {
     padding: 5px;
   }
-  
+
   ul {
     list-style: none;
     padding: 0;
@@ -51,13 +54,17 @@
     display: flex;
     justify-content: space-between;
   }
-  
+
   .actions button {
     font-size: 20px;
     font-weight: 700;
+    color:white;
     height: 50px;
     text-transform: uppercase;
     width: 48%;
+    border-radius: 5px;
+    border-width: 2px;
+    background-color: #1655ca;
   }
   
   .repos li,
@@ -68,4 +75,13 @@
   .repos li + li,
   .starred li + li {
     border-top: 1px solid #ccc;
+  }
+
+  .name-user h1 a {
+    text-decoration: none;
+    color: #243aff
+  }
+
+  .name-user h1 a:hover {
+    color: #1827aa
   }

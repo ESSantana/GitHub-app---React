@@ -1,6 +1,12 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 const Actions = ({getStarred,getRepos}) => {
+
+    Actions.propTypes = {
+        getRepos: propTypes.func,
+        getStarred: propTypes.func
+    }
     
     return (
         <div className='actions'>

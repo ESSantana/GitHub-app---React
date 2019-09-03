@@ -4,6 +4,7 @@ import Search from './search'
 import UserInfo from './user-info'
 import Actions from './actions'
 import Repos from './repos'
+import '../dist/css/style.css'
 
 const AppContainer = ({ 
     userInfo, 
@@ -11,20 +12,29 @@ const AppContainer = ({
     starred, 
     handleSearch, 
     getRepos, 
-    getStarred 
+    getStarred,
+    isFetching,
+    showRepo,
+    showStarred
 }) => {
 
     AppContainer.propTypes = {
         userInfo: propTypes.object,
         repos: propTypes.array,
         starred: propTypes.array,
+        handleSearch: propTypes.func,
+        getRepos:propTypes.func,
+        getStarred: propTypes.func,
+        isFetching: propTypes.bool
     }
 
     return (
         <div className='app'>
 
-            <Search handleSearch={handleSearch} />
+            <Search isDisabled={isFetching} handleSearch={handleSearch} />
 
+            {isFetching && <div>Carregando ...</div>}
+            
             {!!userInfo && <UserInfo
                 user={userInfo} 
             />}
@@ -33,11 +43,11 @@ const AppContainer = ({
                 getRepos={getRepos} getStarred={getStarred}
             />}
 
-            {(typeof(repos) !== 'undefined' && !!repos.length) &&
-                <Repos className='repo' title='Repositórios' repos={repos} />
+            {(typeof(repos) !== 'undefined' && !!repos.length) && showRepo &&
+                <Repos className='repos' title='Repositórios' repos={repos}/>
             }
-            {(typeof(starred) !== 'undefined' && !!starred.length) &&
-                <Repos className='starred' title='Favoritos' repos={starred} />
+            {(typeof(starred) !== 'undefined' && !!starred.length) && showStarred && 
+                <Repos className='starred' title='Favoritos' repos={starred}/>
             } 
 
         </div>

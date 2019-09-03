@@ -14,8 +14,8 @@ const Repos = ({className, title, repos}) => {
             <h2>{title}:</h2>
             <ul>
                 {repos.map((repo, index) =>(
-                    <li key={index}><a href={repo.link}>{repo.name}</a></li>
-                    ))}
+                    <li key={index}><a href={repo.link} target='_blank' rel='noopener noreferrer'>{repo.name}</a></li>
+                    ))} 
             </ul>
         </div>
     )

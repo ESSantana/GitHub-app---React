@@ -1,17 +1,18 @@
 import React from 'react'
-import PropType from 'prop-types'
+import PropType from 'prop-types' 
 
-const Search = ({handleSearch}) => {
+const Search = ({handleSearch, isDisabled}) => {
 
     Search.PropType= {
-        handleSearch: PropType.func.isRequired
+        handleSearch: PropType.func.isRequired,
+        isDisabled: PropType.bool.isRequired
     }
     return (
         <div className='search'>
             <input
-                defaultValue='ESSantana'
+                disabled={isDisabled}
                 type='search'
-                placeholder='digite o nome do user no github'
+                placeholder='Digite o user do github'
                 onKeyUp={handleSearch}
                 />
         </div>

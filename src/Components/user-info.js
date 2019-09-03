@@ -17,7 +17,7 @@ const UserInfo = ({user}) => {
     return (
         <div className='user-info'>
             <img src={user.photo} alt='' />
-            <div>
+            <div className='name-user'>
                 <h1>
                   <a href={`http://github.com/${user.login}`} target='_blank' rel='noopener noreferrer'>
                     {user.username}
@@ -25,9 +25,9 @@ const UserInfo = ({user}) => {
                 </h1>
             </div>
             <ul className='repos-info'>
-                <li>-Repositorios: {user.repos}</li>
-                <li>-Seguidores: {user.followers}</li>
-                <li>-Seguindo: {user.following}</li>
+                <li><b>Repositorios:</b> {user.repos}</li>
+                <li><b>Seguidores:</b> {user.followers}</li>
+                <li><b>Seguindo:</b> {user.following}</li>
             </ul>
         </div>
     )
